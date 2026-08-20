@@ -114,7 +114,7 @@ p.lede{color:var(--ink-3);font-size:16px;line-height:1.55;max-width:62ch;margin:
 <li>Sube los 6 archivos (mismos nombres) a la carpeta nueva — p. ej. <kbd>arqentia.com/pe/firma/</kbd>.</li>
 <li>Pega esa carpeta o la URL del GIF en el campo de arriba. La línea verde te confirma la URL final que se va a usar; los íconos se toman de la misma carpeta automáticamente.</li>
 </ol>
-<div class="callout"><b>Nota:</b> el GIF (35 KB) se reproduce en loop en Gmail, Apple Mail y Outlook (Outlook de escritorio antiguo muestra el primer cuadro estático). El efecto al pasar el mouse se ve en esta vista previa; los clientes de correo eliminan CSS interactivo, pero los íconos, el cursor de enlace y todos los links sí quedan activos para el destinatario.</div>
+<div class="callout"><b>Nota:</b> el GIF (35 KB) se reproduce en loop en Gmail, Apple Mail y Outlook (Outlook de escritorio antiguo muestra el primer cuadro estático). <b>El resaltado al pasar el mouse solo existe en esta vista previa.</b> Gmail elimina los bloques <kbd>&lt;style&gt;</kbd> al pegar y conserva unicamente estilos en linea, y <kbd>:hover</kbd> no se puede escribir en linea — por eso los enlaces llevan un subrayado permanente en gris claro como senal de que son clicables. Los 5 links (mailto, web, tel, WhatsApp, LinkedIn) y el cursor de mano si funcionan para el destinatario.</div>
 </div>
 <div class="raw-card">
 <div class="raw-head">
@@ -145,7 +145,7 @@ function normalizeGif(raw){
   return u.href;
 }
 function sigHtml(email,gifSrc,iconBase){
-const row=(icon,alt,href,text)=>`<tr><td width="24" style="padding:3px 10px 3px 0;vertical-align:middle;line-height:0;"><a href="${href}" style="text-decoration:none;"><img src="${iconBase}${icon}" width="14" height="14" alt="${alt}" style="display:block;border:0;" /></a></td><td style="padding:3px 0;vertical-align:middle;"><a href="${href}" style="color:#0B1220;text-decoration:none;">${text}</a></td></tr>`;
+const row=(icon,alt,href,text)=>`<tr><td width="24" style="padding:3px 10px 3px 0;vertical-align:middle;line-height:0;"><a href="${href}" style="text-decoration:none;"><img src="${iconBase}${icon}" width="14" height="14" alt="${alt}" style="display:block;border:0;" /></a></td><td style="padding:3px 0;vertical-align:middle;"><a href="${href}" style="color:#0B1220;text-decoration:underline;text-decoration-color:#B6C2D4;text-underline-offset:2px;">${text}</a></td></tr>`;
 return `<table cellpadding="0" cellspacing="0" border="0" bgcolor="#EDF0F5" style="border-collapse:collapse;font-family:'DM Sans','SF Pro Text',Helvetica,Arial,sans-serif;color:#0B1220;line-height:1.45;border-radius:8px;overflow:hidden;background-color:#EDF0F5;color-scheme:light;">
 <tr>
 <td valign="middle" align="center" width="88" bgcolor="#2563EB" style="padding:0;background-color:#2563EB;vertical-align:middle;text-align:center;border-right:3px solid #93C5FD;line-height:0;font-size:0;">
