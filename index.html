@@ -1,14 +1,230 @@
 <!doctype html>
-<meta charset="utf-8">
-<title>Firma Diego · assets</title>
-<style>body{font:15px/1.6 system-ui,sans-serif;max-width:640px;margin:48px auto;padding:0 20px;color:#111}
-li{margin:6px 0}code{background:#f2f4f7;padding:2px 6px;border-radius:4px}</style>
-<h1>Firma Diego — assets</h1>
-<ul>
-<li><a href="/arqentia-mark.gif">arqentia-mark.gif</a> — 176×376, animated</li>
-<li><a href="/icon-mail.png">icon-mail.png</a> — 56×56</li>
-<li><a href="/icon-tel.png">icon-tel.png</a> — 56×56</li>
-<li><a href="/icon-wsp.png">icon-wsp.png</a> — 56×56</li>
-<li><a href="/icon-web.png">icon-web.png</a> — 56×56</li>
-<li><a href="/icon-in.png">icon-in.png</a> — 56×56</li>
-</ul>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Arqentia · Firma de correo — Diego Collazos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{--ink:#0B1220;--ink-3:#475569;--ink-4:#64748B;--line:#E2E8F0;--paper:#FFFFFF;--bone:#F8FAFC;--arq:#2563EB;--signal-pale:#60A5FA}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;background:#EDF1F7;color:var(--ink);font-family:"DM Sans","SF Pro Text",system-ui,sans-serif}
+a{color:var(--arq)}a:hover{color:#1D4ED8}
+.page{max-width:880px;margin:0 auto;padding:56px 32px 80px}
+.head{margin-bottom:32px}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--arq);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--arq)}
+h1{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:42px;line-height:1.05;letter-spacing:-.025em;margin:14px 0 8px}
+h1 em{font-style:italic;font-family:"DM Sans",sans-serif;font-weight:400;color:var(--arq)}
+p.lede{color:var(--ink-3);font-size:16px;line-height:1.55;max-width:62ch;margin:0}
+.fields{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0 4px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4)}
+.field input{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink);padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;min-width:340px}
+.field input:focus{outline:2px solid var(--signal-pale);border-color:var(--arq)}
+.field .note{font-size:11px;color:var(--ink-4)}
+.field .resolved{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:#15803D;word-break:break-all;max-width:340px}
+.field .resolved.bad{color:#B91C1C}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0;align-items:center}
+.btn{background:var(--ink);color:#fff;border:0;cursor:pointer;padding:12px 18px;border-radius:10px;font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:13px;letter-spacing:-.005em;display:inline-flex;align-items:center;gap:10px;transition:background .15s;text-decoration:none}
+.btn:hover{background:var(--arq);color:#fff}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--bone);color:var(--ink)}
+.toolbar .ok{font-family:"JetBrains Mono",monospace;font-size:11px;color:#15803D;letter-spacing:.04em;opacity:0;transition:opacity .2s}
+.toolbar .ok.show{opacity:1}
+.preview-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px -28px rgba(11,18,32,.18);overflow:hidden}
+.preview-head{padding:14px 20px;border-bottom:1px solid var(--line);background:var(--bone);display:flex;align-items:center;gap:14px}
+.preview-head .dots{display:flex;gap:6px}
+.preview-head .dots span{width:9px;height:9px;border-radius:50%;background:#CBD5E1}
+.preview-head .dots span:nth-child(1){background:#FF5F57}
+.preview-head .dots span:nth-child(2){background:#FEBC2E}
+.preview-head .dots span:nth-child(3){background:#28C840}
+.preview-head .from{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-4);letter-spacing:.04em}
+.preview-head .from b{color:var(--ink);font-weight:500}
+.preview-body{padding:32px 28px}
+.preview-body p.mock{color:var(--ink-3);font-size:14px;line-height:1.6;margin:0 0 8px}
+.sig-section{margin-top:40px}
+.sig-section h2{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:20px;letter-spacing:-.015em;margin:0 0 14px;color:var(--ink)}
+.sig-section .hint{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-4);margin-bottom:14px}
+.sig-section ol{color:var(--ink-3);font-size:14px;line-height:1.6;padding-left:20px;margin:12px 0}
+.sig-section ol b{color:var(--ink);font-weight:500}
+.sig-section kbd{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink);padding:2px 6px;border:1px solid var(--line);border-radius:4px;background:var(--bone)}
+.callout{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;padding:14px 16px;color:#1E40AF;font-size:13px;line-height:1.55;margin:14px 0}
+.raw-card{margin-top:24px;background:var(--ink);color:#E5E9F2;border-radius:12px;overflow:hidden}
+.raw-head{padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--signal-pale)}
+.raw-head .btn.mini{padding:7px 12px;font-size:11px;background:rgba(96,165,250,.18);color:#fff;border:1px solid rgba(96,165,250,.3)}
+.raw-head .btn.mini:hover{background:rgba(96,165,250,.32)}
+.raw{padding:18px 20px;font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.6;color:#B7C2D6;overflow-x:auto;white-space:pre-wrap;word-break:break-all;max-height:320px}
+#sig-rendered td a{transition:color .15s}
+#sig-rendered tr:hover td a{color:#2563EB!important;text-decoration:underline!important;text-underline-offset:3px}
+#sig-rendered img[width="14"]{transition:transform .18s}
+#sig-rendered tr:hover img[width="14"]{transform:scale(1.25)}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="head">
+<span class="eyebrow">// ARQENTIA · FIRMA ANIMADA</span>
+<h1>Firma de correo — <em>Diego Collazos.</em></h1>
+<p class="lede">Firma para Gmail con el <b>logo animado</b> (GIF en loop), panel gris claro y <b>íconos gráficos</b> de correo, web, teléfono, WhatsApp y LinkedIn — cada fila responde al pasar el mouse (prueba en la vista previa). Enlaces activos: mailto, /pe, tel, wa.me y LinkedIn.</p>
+</div>
+<div class="fields">
+<div class="field">
+<label for="f-email">Correo de Diego</label>
+<input id="f-email" type="text" value="diego@arqentia.com" />
+<span class="note">La firma se actualiza sola si lo editas.</span>
+</div>
+<div class="field">
+<label for="f-gif">URL pública del GIF</label>
+<input id="f-gif" type="text" value="https://firmadiego.demo.arqentia.com/arqentia-mark.gif" />
+<span class="note">Acepta la URL completa, o solo el dominio / la carpeta.</span>
+<span class="resolved" id="resolved"></span>
+</div>
+</div>
+<div class="toolbar">
+<button class="btn" id="copy-rendered" type="button"><span>📋</span> Copiar firma al portapapeles</button>
+<button class="btn ghost" id="copy-html" type="button"><span>&lt;/&gt;</span> Copiar HTML</button>
+<button class="btn ghost" type="button" data-dl="all"><span>⬇</span> Descargar los 6 archivos (GIF + íconos)</button>
+<span class="ok" id="ok">✓ Copiado — pégalo en Gmail → Configuración → Firma</span>
+</div>
+<div class="preview-card">
+<div class="preview-head">
+<div class="dots"><span></span><span></span><span></span></div>
+<div class="from">From: <b>Diego Collazos</b> &lt;<span id="from-email">diego@arqentia.com</span>&gt;</div>
+</div>
+<div class="preview-body">
+<p class="mock">Hola María,</p>
+<p class="mock">Gracias por tu tiempo hoy. Te comparto la propuesta que conversamos — con gusto la revisamos juntos cuando te acomode.</p>
+<p class="mock">Saludos,<br />Diego</p>
+<div id="sig-rendered" style="margin-top:24px;"></div>
+</div>
+</div>
+<div class="sig-section">
+<h2>Cómo instalarla en Gmail</h2>
+<div class="callout" style="background:#ECFDF5;border-color:#A7F3D0;color:#065F46;"><b>Los 6 archivos ya están alojados</b> en <kbd>firmadiego.demo.arqentia.com</kbd> con HTTPS. No hace falta subir nada: el campo de arriba ya apunta ahí. Solo copia y pega.</div>
+<ol>
+<li>Haz clic en <b>Copiar firma al portapapeles</b>.</li>
+<li>En Gmail: <b>Configuración</b> (engranaje) → <b>Ver todos los ajustes</b> → pestaña <b>General</b> → <b>Firma</b> → <kbd>+ Crear nueva</kbd>, nómbrala <em>Arqentia · Diego</em> y pega con <kbd>Ctrl V</kbd> / <kbd>⌘ V</kbd>.</li>
+<li>En <b>Valores predeterminados de firma</b> selecciónala para correos nuevos y respuestas → <b>Guardar cambios</b>.</li>
+</ol>
+<div class="hint" style="margin-top:20px;">// SI ALGÚN DÍA CAMBIA EL HOSTING</div>
+<ol>
+<li>Sube los 6 archivos (mismos nombres) a la carpeta nueva — p. ej. <kbd>arqentia.com/pe/firma/</kbd>.</li>
+<li>Pega esa carpeta o la URL del GIF en el campo de arriba. La línea verde te confirma la URL final que se va a usar; los íconos se toman de la misma carpeta automáticamente.</li>
+</ol>
+<div class="callout"><b>Nota:</b> el GIF (35 KB) se reproduce en loop en Gmail, Apple Mail y Outlook (Outlook de escritorio antiguo muestra el primer cuadro estático). El efecto al pasar el mouse se ve en esta vista previa; los clientes de correo eliminan CSS interactivo, pero los íconos, el cursor de enlace y todos los links sí quedan activos para el destinatario.</div>
+</div>
+<div class="raw-card">
+<div class="raw-head">
+<span>// HTML DE EXPORTACIÓN · usa la URL pública del GIF</span>
+<button class="btn mini" id="copy-raw-inline" type="button">📋 Copiar</button>
+</div>
+<pre class="raw" id="raw-html"></pre>
+</div>
+</div>
+<script>
+const GIF_NAME='arqentia-mark.gif';
+const DEFAULT_GIF='https://firmadiego.demo.arqentia.com/'+GIF_NAME;
+const LOCAL_GIF=GIF_NAME;
+const LOCAL_BASE='';
+
+/* Acepta "https://host/carpeta/arqentia-mark.gif", "host/carpeta/", o solo "host".
+   Devuelve siempre una URL absoluta que termina en un archivo, para que
+   iconBase (todo lo anterior a la última "/") nunca quede vacío. */
+function normalizeGif(raw){
+  let s=(raw||'').trim();
+  if(!s) return DEFAULT_GIF;
+  s=s.replace(/^\/+/,'');
+  if(!/^https?:\/\//i.test(s)) s='https://'+s;
+  let u;
+  try{u=new URL(s);}catch(e){return DEFAULT_GIF;}
+  const last=u.pathname.split('/').pop();
+  if(!/\.[a-z0-9]{2,5}$/i.test(last)) u.pathname=u.pathname.replace(/\/+$/,'')+'/'+GIF_NAME;
+  return u.href;
+}
+function sigHtml(email,gifSrc,iconBase){
+const row=(icon,alt,href,text)=>`<tr><td width="24" style="padding:3px 10px 3px 0;vertical-align:middle;line-height:0;"><a href="${href}" style="text-decoration:none;"><img src="${iconBase}${icon}" width="14" height="14" alt="${alt}" style="display:block;border:0;" /></a></td><td style="padding:3px 0;vertical-align:middle;"><a href="${href}" style="color:#0B1220;text-decoration:none;">${text}</a></td></tr>`;
+return `<table cellpadding="0" cellspacing="0" border="0" bgcolor="#EDF0F5" style="border-collapse:collapse;font-family:'DM Sans','SF Pro Text',Helvetica,Arial,sans-serif;color:#0B1220;line-height:1.45;border-radius:8px;overflow:hidden;background-color:#EDF0F5;color-scheme:light;">
+<tr>
+<td valign="middle" align="center" width="88" bgcolor="#2563EB" style="padding:0;background-color:#2563EB;vertical-align:middle;text-align:center;border-right:3px solid #93C5FD;line-height:0;font-size:0;">
+<img src="${gifSrc}" width="88" alt="Arqentia" style="display:block;width:88px;height:auto;border:0;outline:none;" />
+</td>
+<td valign="top" bgcolor="#EDF0F5" style="padding:20px 24px 20px 22px;background-color:#EDF0F5;vertical-align:top;color:#0B1220;">
+<div style="font-family:'Space Grotesk','SF Pro Display',Helvetica,Arial,sans-serif;font-weight:600;font-size:16px;line-height:1.2;letter-spacing:-0.015em;color:#0B1220;">Diego Collazos</div>
+<div style="font-family:'DM Sans','SF Pro Text',Helvetica,Arial,sans-serif;font-size:12.5px;color:#64748B;margin-top:3px;line-height:1.4;">Director Asociado <span style="color:#2563EB;">&#8212; Per&uacute;</span></div>
+<div style="border-top:1px solid #CBD5E1;margin:12px 0 10px;width:250px;"></div>
+<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:10.5px;line-height:1.4;color:#0B1220;">
+${row('icon-mail.png','correo',`mailto:${email}`,email)}
+${row('icon-web.png','web','https://arqentia.com/pe','arqentia.com/pe')}
+${row('icon-tel.png','teléfono','tel:+51974388703','+51 974 388 703')}
+${row('icon-wsp.png','whatsapp','https://wa.me/51974388703?text=Hola%20Diego%2C%20te%20contacto%20desde%20tu%20correo.','wa.me/51974388703')}
+${row('icon-in.png','linkedin','https://linkedin.com/company/arqentia','linkedin.com/company/arqentia')}
+</table>
+<div style="font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-size:10.5px;color:#64748B;padding-top:8px;">Arq<span style="font-style:italic;color:#2563EB;">e</span>ntia <span style="color:#2563EB;">&#8212;</span> Lima, Per&uacute;</div>
+</td>
+</tr>
+</table>`;
+}
+const $=id=>document.getElementById(id);
+function render(){
+const email=$('f-email').value.trim()||'diego@arqentia.com';
+$('from-email').textContent=email;
+$('sig-rendered').innerHTML=sigHtml(email,LOCAL_GIF,LOCAL_BASE);
+const url=normalizeGif($('f-gif').value);
+const res=$('resolved');
+res.textContent='→ '+url;
+res.classList.toggle('bad',!/^https:\/\//i.test(url));
+$('raw-html').textContent=exportHtml();
+}
+function exportHtml(){
+const email=$('f-email').value.trim()||'diego@arqentia.com';
+const url=normalizeGif($('f-gif').value);
+return sigHtml(email,url,url.replace(/[^\/]*$/,''));
+}
+function showOk(){const el=$('ok');el.classList.add('show');clearTimeout(window.__okT);window.__okT=setTimeout(()=>el.classList.remove('show'),2400);}
+async function copyRendered(){
+const html=exportHtml();
+const email=$('f-email').value.trim();
+const text=`Diego Collazos — Director Asociado, Perú\n${email} · arqentia.com/pe · +51 974 388 703 · wa.me/51974388703\nArqentia — Lima, Perú`;
+try{
+await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([text],{type:'text/plain'})})]);
+showOk();
+}catch(e){
+const stage=document.createElement('div');
+stage.setAttribute('style','position:fixed;left:-9999px;top:0;');
+stage.innerHTML=html;
+document.body.appendChild(stage);
+const range=document.createRange();range.selectNodeContents(stage);
+const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);
+document.execCommand('copy');sel.removeAllRanges();stage.remove();showOk();
+}
+}
+async function copyRaw(){
+try{await navigator.clipboard.writeText(exportHtml());showOk();}
+catch(e){const ta=document.createElement('textarea');ta.value=exportHtml();document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showOk();}
+}
+$('copy-rendered').addEventListener('click',copyRendered);
+$('copy-html').addEventListener('click',copyRaw);
+$('copy-raw-inline').addEventListener('click',copyRaw);
+$('f-email').addEventListener('input',render);
+$('f-gif').addEventListener('input',render);
+const DL_FILES=[['arqentia-mark.gif','arqentia-mark.gif'],['icon-mail.png','icon-mail.png'],['icon-web.png','icon-web.png'],['icon-tel.png','icon-tel.png'],['icon-wsp.png','icon-wsp.png'],['icon-in.png','icon-in.png']];
+document.querySelector('[data-dl="all"]').addEventListener('click',async ev=>{
+const btn=ev.currentTarget;btn.disabled=true;
+for(const [path,name] of DL_FILES){
+try{
+const blob=await (await fetch(path)).blob();
+const u=URL.createObjectURL(blob);
+const a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();
+setTimeout(()=>URL.revokeObjectURL(u),4000);
+await new Promise(r=>setTimeout(r,350));
+}catch(e){console.warn('descarga falló',path,e);}
+}
+btn.disabled=false;showOk();
+});
+render();
+</script>
+</body>
+</html>
